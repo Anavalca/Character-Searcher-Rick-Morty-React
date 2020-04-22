@@ -1,46 +1,48 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
 
-    body{
+    body {
 
-    background: black;
-    
+        background: black;
+
 
         .App {
             display: flex;
             flex-direction: column;
             align-items: center;
-            
+
             .character_List {
                 display: flex;
                 flex-wrap: wrap;
                 margin-left: auto;
                 width: 90%;
-                
-                
+
+
 
                 li {
-                    padding: 10px;
-                    
-                    p{
+                    padding: 20px 10px 10px 10px;
+
+                    p {
                         color: white;
+                        text-align: center;
                     }
+
                     .character_photo_container {
-                        width: 296px;
-                        height: 296px;
+                        width: 290px;
+                        height: 290px;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         background: url(https://mystickermania.com/cdn/stickers/rick-and-morty/sticker_2060.png) no-repeat center;
-                        // background-size: 90% 90%;
+                        background-size: 90% 90%;
                         // animation-name: rotateCharacter;
                         // animation-duration: 9500ms;
                         // animation-iteration-count: infinite;
                         // animation-timing-function: linear;
-                    
+
                         // @keyframes rotateCharacter { 
                         //     from { 
                         //         transform: rotate(0deg); 
@@ -48,15 +50,15 @@
                         //         transform: rotate(360deg); 
                         //     }
                         // }
-                  
 
-                        img{
+
+                        img {
                             border: 7px solid white;
                             width: 150px;
                             border-radius: 50%;
                             animation: none;
                         }
-                
+
                     }
                 }
             }

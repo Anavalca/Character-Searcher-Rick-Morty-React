@@ -3,6 +3,7 @@ import '../stylesheets/App.scss';
 import FetchData from '../services/FetchData';
 import CharacterList from './CharacterList';
 import CharacterDetails from './CharacterDetails';
+import Filter from './Filters';
 import { Switch,Route } from 'react-router-dom';
 
 
@@ -25,6 +26,12 @@ class App extends React.Component {
       })
   }
 
+  handleInputValue(inputValue){
+    this.setState({
+      value: inputValue
+    })
+  }
+
   renderCharacterDetail(props){
     const routeId = props.match.params.id;
     const characters = this.state.data;
@@ -41,6 +48,10 @@ class App extends React.Component {
       <div className="App">
          <Switch>
           <Route exact path="/">
+            <header>
+              <img src='https://help.redbubble.com/hc/article_attachments/360002309526/Rick_and_Morty_-_logo__English_.png' alt='Rick and Morty Logo'/>
+            </header>
+            <Filter handleInputValue={this.handleInputValue} />
             <CharacterList data={data}/>
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail}/>
