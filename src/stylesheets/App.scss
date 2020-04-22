@@ -7,6 +7,7 @@
     body{
 
     background: black;
+    
 
         .App {
             display: flex;
@@ -18,12 +19,15 @@
                 flex-wrap: wrap;
                 margin-left: auto;
                 width: 90%;
-                color: white;
+                
                 
 
                 li {
                     padding: 10px;
-                                   
+                    
+                    p{
+                        color: white;
+                    }
                     .character_photo_container {
                         width: 296px;
                         height: 296px;
