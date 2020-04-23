@@ -80,7 +80,7 @@ body {
         // CHARACTER DETAIL--------------------//
         .character_detail_container {
             margin-top: 30px;
-            width: 250px;
+            width: 280px;
             height: 550px;
             background-color:white;
             display: flex;
@@ -92,13 +92,18 @@ body {
 
 
             img {
-                width: 250px;
-                height: 250px;
+                width: 280px;
+                height: 280px;
                 border-radius: 12px 12px 0 0;
             }
 
             .characterName{
                 font-size: 28px;
+            }
+
+            .dataContainer {
+                padding: 0 30px 0 30px;
+                font-size: 14px;
             }
 
             .extrasContainer {
@@ -109,18 +114,36 @@ body {
                 color:white;
                 text-align: center;
                 
-            
-                .species {
+                .container{
+                    display: flex;
+                    flex-direction: column;
+                    color:white;
+                    justify-content: space-evenly;
+                    align-items: center;
                     width: 50%;
                     background-color:  #4eda10;
+                    padding: 5px;
+                }
+            
+                .species {
                     border-right: 1px solid white;
                     border-radius: 0 0 0 12px;
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        color: white;
+                    }
                 }
+
                 .status {
-                    width: 50%;
-                    background-color: #4eda10;
                     border-radius: 0 0 12px 0;
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        color: white;
+                    }
                 }
+
             }
 
         }

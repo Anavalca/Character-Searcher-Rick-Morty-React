@@ -7,7 +7,11 @@ const CharacterList = (props) => {
   return (
     <ul className="character_List">
       {props.data
-        // .filter(character => character.name.sort())
+        .sort((characterA, characterB) => {
+          if (characterA.name < characterB.name) return -1;
+          else if (characterA.name > characterB.name) return 1;
+          return 0;
+        })
         .filter(character => props.inputValue === '' || character.name.toLowerCase().includes(props.inputValue.toLowerCase()))
         .map(character => 
           <li key={character.id}>
