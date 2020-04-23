@@ -10,7 +10,6 @@ const CharacterCard = (props) => {
       <p>{name}</p>
       <p>{species}</p>
     </div>
-    
   )
 }
 

@@ -21,6 +21,21 @@
                 display: none;
             }
 
+            .errorSearch_container {
+
+                .errorSearchMessage{
+                    padding: 30px;
+                    font-size: 20px;
+                    display: block;
+                }
+                
+                img{
+                    width: 300px;
+                }
+            
+
+            }
+
             .character_List {
                 display: flex;
                 flex-wrap: wrap;
@@ -31,6 +46,7 @@
 
                 li {
                     padding: 20px 10px 10px 10px;
+                    cursor: pointer;
 
                     p {
                         color: white;

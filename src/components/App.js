@@ -4,6 +4,8 @@ import FetchData from '../services/FetchData';
 import CharacterList from './CharacterList';
 import CharacterDetails from './CharacterDetails';
 import Filter from './Filters';
+import ErrorRoutePage from './ErrorRoutePage';
+import errorImg from '../images/MortySad.gif'
 import { Switch,Route } from 'react-router-dom';
 
 
@@ -73,21 +75,21 @@ class App extends React.Component {
 
   renderCharacterDetail(props){
     const routeId = props.match.params.id;
-    // console.log(props)
-    // if (parseInt(routeId) > 25){
-    //   this.setState({
-    //     isFound: false
-    //   })
-    // }
-
     const characters = this.state.data;
+    let foundRoute = false;
+    let characterFound;
     for (let character of characters){
-
       if(character.id === parseInt(routeId)){
-        return <CharacterDetails character={character}/>
-      }     
+        foundRoute = true;
+        characterFound = character;
+        break;
+      }   
     }
- 
+    if (foundRoute){
+      return <CharacterDetails character={characterFound}/>;
+    } else {
+      return <ErrorRoutePage/>;
+    }
   }
 
   render() {
@@ -100,7 +102,10 @@ class App extends React.Component {
               <img src='https://help.redbubble.com/hc/article_attachments/360002309526/Rick_and_Morty_-_logo__English_.png' alt='Rick and Morty Logo'/>
             </header>
             <Filter handleInputValue={this.handleInputValue} value={value} />
-            <span className={isFound === true ? 'hidden' : '' }>No hay resultados para "{value}"</span>
+            <div className={`errorSearch_container ${isFound === true ? 'hidden' : '' }`}>
+              <span className='errorSearchMessage' >No hay resultados para "{value}"</span>
+              <img src={errorImg} alt='Sad Morty'></img> 
+            </div>
             <CharacterList data={data}  inputValue={value}/>
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail}/>

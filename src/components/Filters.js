@@ -9,7 +9,7 @@ const Filter = (props) => {
 
     return (
         <form>
-            <input type="text" value={props.value} onChange={updateInputValue} />
+            <input type="text" placeholder='Search character' value={props.value} onChange={updateInputValue} />
         </form>
     );
 };
