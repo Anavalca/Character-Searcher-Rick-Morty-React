@@ -1,14 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CharacterDetails = (props) => {
-    // console.log(props)
-  const { name, image, gender} = props.character;
+  const { name, image, species, gender, origin, episode, status} = props.character;
   
   return (
+    <React.Fragment>
     <div className="character_detail_container">
       <img src={image} alt={name}/>
-      <p>{gender}</p>
+      <p className='characterName'>{name}</p>
+      <div>
+        <p>GENER: {gender}</p>
+        <p>ORIGIN: {origin.name}</p>
+        <p>EPISODES: {episode.length}</p>
+      </div>
+      <div className='extrasContainer'>
+        <icon>  </icon> 
+        <p className='species'> SPECIE {species}</p>
+        <p className='status'> STATUS {status}</p>
+      </div>
     </div>
+      <Link to="/">
+      <p>Volver</p>
+      </Link>
+    </React.Fragment>
   )
 }
 

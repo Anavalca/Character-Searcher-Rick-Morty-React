@@ -6,7 +6,7 @@ const ErrorMessagePage = (props) => {
     
     return (
         <div className='errorSearch_container'>
-              <span className='errorSearchMessage'>No hay resultados</span>
+              <span className='errorSearchMessage'>Sorry, there is nothing here.</span>
               <img src={errorImg} alt='Sad Morty'></img> 
               <Link to="/">
                  <button>Volver</button>

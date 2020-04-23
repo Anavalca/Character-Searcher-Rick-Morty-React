@@ -36,7 +36,7 @@ class App extends React.Component {
     .then(data => {
       this.setState({
         data: data.results
-      })
+      })    
     })
     
   }
@@ -103,7 +103,7 @@ class App extends React.Component {
             </header>
             <Filter handleInputValue={this.handleInputValue} value={value} />
             <div className={`errorSearch_container ${isFound === true ? 'hidden' : '' }`}>
-              <span className='errorSearchMessage' >No hay resultados para "{value}"</span>
+              <span className='errorSearchMessage' >There isn't result for this search "{value}"</span>
               <img src={errorImg} alt='Sad Morty'></img> 
             </div>
             <CharacterList data={data}  inputValue={value}/>
