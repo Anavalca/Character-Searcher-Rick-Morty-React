@@ -3,10 +3,12 @@ import CharacterCard from './CharacterCard'
 import { Link } from 'react-router-dom';
 
 const CharacterList = (props) => {
+  console.log(props.inputValue)
+
   return (
     <ul className="character_List">
       {props.data
-
+        .filter(character => props.inputValue === '' || character.name.toLowerCase().includes(props.inputValue.toLowerCase()))
         .map(character => 
           <li key={character.id}>
             <Link to={`/character/${character.id}`}>

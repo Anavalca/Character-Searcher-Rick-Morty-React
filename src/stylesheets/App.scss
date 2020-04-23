@@ -4,6 +4,8 @@
     text-decoration: none;
     list-style: none;
 
+ 
+
     body {
 
         background: black;
@@ -13,6 +15,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            color: white;
+
+            .hidden {
+                display: none;
+            }
 
             .character_List {
                 display: flex;

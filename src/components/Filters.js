@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Filter = (props) => {
-
-    const updateInputValue = (event) => {
+    
+    const updateInputValue = (event) => { 
+        event.preventDefault();
         props.handleInputValue(event.currentTarget.value)
     }
 
