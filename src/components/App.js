@@ -1,13 +1,13 @@
 import React from 'react';
 import '../stylesheets/App.scss';
 import FetchData from '../services/FetchData';
+import Header from './Header';
 import CharacterList from './CharacterList';
 import CharacterDetails from './CharacterDetails';
 import Filter from './Filters';
 import ErrorRoutePage from './ErrorRoutePage';
 import errorImg from '../images/MortySad.gif'
 import { Switch,Route } from 'react-router-dom';
-
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +22,6 @@ class App extends React.Component {
     }
   }
 
-  
   componentDidMount() {
 
     const searchLocalInfo = JSON.parse(localStorage.getItem('searchData'));
@@ -98,9 +97,7 @@ class App extends React.Component {
       <div className="App">
          <Switch>
           <Route exact path="/">
-            <header>
-              <img src='https://help.redbubble.com/hc/article_attachments/360002309526/Rick_and_Morty_-_logo__English_.png' alt='Rick and Morty Logo'/>
-            </header>
+            <Header/>
             <Filter handleInputValue={this.handleInputValue} value={value} />
             <div className={`errorSearch_container ${isFound === true ? 'hidden' : '' }`}>
               <span className='errorSearchMessage' >There isn't result for this search "{value}"</span>
