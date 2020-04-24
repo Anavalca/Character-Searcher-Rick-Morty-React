@@ -6,7 +6,7 @@ const CharacterList = (props) => {
 
   const filterCheckbox = (character) => {
     let returnValue = false;
-    if (!ischeckedHuman && !ischeckedAlien ) {
+    if (!ischeckedHuman && !ischeckedAlien) {
       returnValue = true;
     } else if (ischeckedHuman && character.species === 'Human' ){
       returnValue = true;

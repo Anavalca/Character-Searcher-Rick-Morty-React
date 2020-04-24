@@ -7,7 +7,7 @@ const Header = (props) => {
     return (
         <header>
             <Link to="/">
-              <img className='webLogo' src='https://help.redbubble.com/hc/article_attachments/360002309526/Rick_and_Morty_-_logo__English_.png' alt='Rick and Morty Logo'/>
+              <img className='webLogo' src='https://help.redbubble.com/hc/article_attachments/360002309526/Rick_and_Morty_-_logo__English_.png' alt='Rick and Morty Logo' title='Rick and Morty Logo'/>
             </Link>
             <div key="1" className="song"> 
                 <audio controls autoPlay>

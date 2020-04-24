@@ -40,11 +40,12 @@ body {
                 }
 
                 audio {
-                    width: 120px;
+                    width: 118px;
                     height: 30px;
 
                     @include forPc {
                         height: 38px;
+                        width: 118px;
                     }
                 }
 
@@ -84,13 +85,13 @@ body {
             input {
                 margin: 0 20px 0 0;
             }
-            
+
             @include forPc {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
             }
-        
+
             Form {
 
                 input {
@@ -110,10 +111,20 @@ body {
                 }
             }
 
-            .checkboxContainer{
+            .checkboxContainer {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding-top: 18px;
+
+                @include forPc {
+                    padding-top: 0;
+                }
 
                 input {
-                    margin: 0 20px 0 5px;
+                    cursor: pointer;
+                    margin: 3px 20px 0 5px;
+                    transform: scale(1.4);
                 }
             }
         }
@@ -127,12 +138,33 @@ body {
 
             .errorSearchMessage {
                 padding: 30px;
-                font-size: 20px;
-                display: block;
+                font-size: 15px;
+                max-width: 300px;
+                color: rgb(0, 0, 0);
+                background-color: white;
+                padding: 2px;
+                margin: 30px 0 20px 0;
+
+
+                @include forPc {
+                    max-width: 600px;
+                    font-size: 20px;
+                }
             }
 
             img {
-                width: 300px;
+
+                width: 250px;
+
+                @include forPc {
+                    width: 300px;
+                }
+            }
+
+            .back {
+                margin-top: 20px;
+                color: rgb(0, 0, 0);
+                background-color: white;
             }
         }
 
@@ -176,7 +208,7 @@ body {
                     font-size: 15px;
                 }
 
-                
+
                 .character_photo_container {
                     display: flex;
                     justify-content: center;
@@ -234,14 +266,15 @@ body {
 
         // CHARACTER DETAIL--------------------//
         .character_detail_container {
+            height: 100%;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
 
             .character_detail_subcontainer {
-                width: 265px;
-                height: 505px;
+                width: 250px;
+                height: 460px;
                 background-color: white;
                 display: flex;
                 flex-direction: column;
@@ -249,22 +282,21 @@ body {
                 align-items: center;
                 color: black;
                 border-radius: 12px 12px 12px 12px;
-                box-shadow: 4px 5px 19px 3px #504f4f;
 
                 @include forPc {
                     margin-top: 10px;
                     width: 607px;
-                    height: 380px;
+                    height: 360px;
                 }
 
                 img {
-                    width: 265px;
-                    height: 265px;
+                    width: 250px;
+                    height: 240px;
                     border-radius: 12px 12px 0 0;
 
                     @include forPc {
                         width: 50%;
-                        height: 280px;
+                        height: 100%;
                         border-radius: 12px 0 0 0;
                     }
                 }
@@ -290,10 +322,10 @@ body {
                         }
 
                         .nameCharacter {
-                            font-size: 24px;
+                            font-size: 22px;
                             font-weight: 300;
                             text-align: center;
-                            padding: 10px 20px 10px 30px;
+                            padding: 8px 20px 10px 30px;
 
                             @include forPc {
                                 font-size: 30px;
@@ -304,7 +336,18 @@ body {
 
                         .dataContainer2 {
                             padding: 0 30px 0 30px;
-                            font-size: 14px;
+                            font-size: 13px;
+                            max-width: 250px;
+                            
+
+                            @include forPc {
+                                padding: 0 30px 0 30px;
+                                font-size: 13px;
+                            }
+
+                            p {
+                                padding-bottom: 8px;
+                            }
                         }
                     }
 
@@ -312,7 +355,7 @@ body {
 
                 .extrasContainer {
                     width: 100%;
-                    height: 100px;
+                    height: 80px;
                     display: flex;
                     flex-direction: row;
                     color: white;
@@ -335,8 +378,8 @@ body {
                         border-radius: 0 0 0 12px;
 
                         img {
-                            width: 50px;
-                            height: 50px;
+                            width: 40px;
+                            height: 40px;
                             color: white;
                         }
                     }
@@ -345,8 +388,8 @@ body {
                         border-radius: 0 0 12px 0;
 
                         img {
-                            width: 50px;
-                            height: 50px;
+                            width: 40px;
+                            height: 40px;
                             color: white;
                         }
                     }
@@ -354,18 +397,28 @@ body {
                 }
             }
 
-            .messageGoHome {
-                padding-top: 28px;
-                font-size: 15px;
-                text-align: center;
+            .circleButton {
+                margin: 20px;
+                width: 40px;
+                height: 40px;
+                background-color: white;
+                border-radius:50%;
+                font-size: 20px;
+                outline: none;
                 cursor: pointer;
             }
+        }
 
-            .gifGoHome {
-                width: 190px;
-                cursor: pointer;
-            }
+        .messageGoHome {
+            padding-top: 34px;
+            font-size: 15px;
+            text-align: center;
+            cursor: pointer;
+        }
 
+        .gifGoHome {
+            width: 190px;
+            cursor: pointer;
         }
     }
 }

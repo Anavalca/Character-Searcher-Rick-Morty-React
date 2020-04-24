@@ -9,7 +9,7 @@ const ErrorMessagePage = (props) => {
               <span className='errorSearchMessage'>Sorry, there is nothing here.</span>
               <img src={errorImg} alt='Sad Morty'></img> 
               <Link to="/">
-                 <button>Volver</button>
+                 <p className='back'>Back to home</p>
              </Link>
             </div>
     );
