@@ -1,7 +1,7 @@
 @import './utils/mixins';
 
 body {
-    background: black;
+    background: url('../images/fondoStart.webp');
     font-family: 'Patrick Hand', cursive;
     font-size: 18px;
     letter-spacing: 2px;
@@ -10,6 +10,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        background: #0000004a;
         color: white;
 
         header {
@@ -17,15 +18,43 @@ body {
             .webLogo {
                 padding: 20px 0 20px 0;
                 width: 280px;
+                cursor: pointer;
 
                 @include forTablet {
                     width: 400px;
                 }
             }
+            .song {
+
+                opacity: 0.8;
+                display: flex;
+                justify-content: center;
+                padding-bottom: 25px;
+
+                @include forPc {
+                    position: absolute;
+                    top:60px;
+                    right: 40px;
+                    opacity: 0.8;
+                }
+          
+                audio {
+                  width: 120px;
+                  height: 30px;
+
+                  @include forPc {
+                    height: 38px;
+                 }
+                }
+          
+                audio:focus {
+                  outline: none;
+                }
+            }
         }
 
         .hidden {
-            display: none;
+            display: none !important;
         }
 
         Form {
@@ -37,12 +66,23 @@ body {
                 color: #8ce422;
                 background-color: black;
                 margin-bottom: 15px;
+
+                &::placeholder{
+                    color: white;
+                    opacity: 0.9;
+                    font-family: 'Patrick Hand', cursive;
+                    letter-spacing: 3px;
+                }
             }
         }
 
         // ERRORMESSAGE--------------------//
         .errorSearch_container {
-
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
             .errorSearchMessage {
                 padding: 30px;
                 font-size: 20px;
@@ -95,8 +135,9 @@ body {
                 }
 
                 .characterSpecie {
-                    font-size: 13px;
-                    padding: 0 2px 0 2px;
+                    font-size: 12px;
+                    padding: 0 3px 0 3px;
+                    margin-top: 2px;
                 }
 
                 .humanColor {
@@ -179,13 +220,13 @@ body {
                 align-items: center;
                 color: black;
                 border-radius: 12px 12px 12px 12px;
-                box-shadow: 4px 5px 5px 3px #504f4f;
+                box-shadow: 4px 5px 19px 3px #504f4f;
             
                 @include forPc {
+                    margin-top: 10px;
                     width: 607px;
                     height: 380px;
                 }
-
 
                 img {
                     width: 265px;
@@ -194,6 +235,7 @@ body {
 
                     @include forPc {
                         width: 50%;
+                        height: 280px;
                         border-radius: 12px 0 0 0;
                     }
                 }
@@ -209,27 +251,25 @@ body {
                     }
 
                     .titleContainer {
-
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
                            
                         @include forPc {
-                            justify-content: space-evenly;
-                            height: 50%;
+                            align-items: start;
+                            width: 50%;
                         }
 
                         .nameCharacter {
                             font-size: 24px;
                             font-weight: 300;
                             text-align: center;
-                            padding-bottom: 10px;
-                            padding-top: 10px;
+                            padding: 10px 20px 10px 30px;
 
                             @include forPc {
                                 font-size: 30px;
                                 text-align: left;
-                                padding: 0 30px 0 30px;
+                                padding: 20px 20px 30px 30px;
                             }
                         }
 
@@ -293,7 +333,7 @@ body {
             }
 
             .gifGoHome {
-                width: 160px;
+                width: 190px;
                 cursor: pointer;
             }
 

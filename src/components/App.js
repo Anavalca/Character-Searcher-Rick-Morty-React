@@ -100,8 +100,8 @@ class App extends React.Component {
             <Header/>
             <Filter handleInputValue={this.handleInputValue} value={value} />
             <div className={`errorSearch_container ${isFound === true ? 'hidden' : '' }`}>
-              <span className='errorSearchMessage' >There isn't result for this search "{value}"</span>
-              <img src={errorImg} alt='Sad Morty'></img> 
+              <span className='errorSearchMessage' >There isn't any result for this search: "{value}"</span>
+              <img src={errorImg} alt='Sad Morty' className/>
             </div>
             <CharacterList data={data}  inputValue={value}/>
           </Route>
