@@ -7,8 +7,8 @@ const CharacterCard = (props) => {
         <div className='character_photo_container'>
          <img src={img} alt={name}/>
         </div>
-      <p>{name}</p>
-      <p>{species}</p>
+      <p className='characterName'>{name}</p>
+      <p className={`characterSpecie ${species === 'Alien' ? 'alienColor' : 'humanColor'}`}>{species}</p>
     </div>
   )
 }
