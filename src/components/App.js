@@ -14,11 +14,13 @@ class App extends React.Component {
     super(props);
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleInputValue = this.handleInputValue.bind(this);
+    this.handleCheckboxValue = this.handleCheckboxValue.bind(this);
     this.state = {
       data: [],
       value:'',
       isFound: true,
-
+      ischeckedHuman: false,
+      ischeckedAlien: false,
     }
   }
 
@@ -37,7 +39,6 @@ class App extends React.Component {
         data: data.results
       })    
     })
-    
   }
 
   componentDidUpdate() {
@@ -49,6 +50,22 @@ class App extends React.Component {
       value: inputValue
     })
     this.foundSearch(inputValue)
+  }
+
+  handleCheckboxValue(checkboxName){
+    if (checkboxName === 'Human'){
+      this.setState(prevState => {
+        return {
+        ischeckedHuman: !prevState.ischeckedHuman
+        }
+      })
+    } else if (checkboxName === 'Alien'){
+      this.setState(prevState => {
+        return {
+        ischeckedAlien: !prevState.ischeckedAlien
+        }
+      })
+    }
   }
 
   foundSearch(inputValue){
@@ -92,18 +109,18 @@ class App extends React.Component {
   }
 
   render() {
-    const {data , value, isFound} = this.state
+    const {data , value, isFound, ischeckedAlien, ischeckedHuman} = this.state
     return (
       <div className="App">
          <Switch>
           <Route exact path="/">
             <Header/>
-            <Filter handleInputValue={this.handleInputValue} value={value} />
+            <Filter handleInputValue={this.handleInputValue} value={value} handleCheckboxValue={this.handleCheckboxValue} ischeckedHuman={ischeckedHuman} ischeckedAlien={ischeckedAlien}/>
             <div className={`errorSearch_container ${isFound === true ? 'hidden' : '' }`}>
               <span className='errorSearchMessage' >There isn't any result for this search: "{value}"</span>
-              <img src={errorImg} alt='Sad Morty' className/>
+              <img src={errorImg} alt='Sad Morty'/>
             </div>
-            <CharacterList data={data}  inputValue={value}/>
+            <CharacterList data={data}  inputValue={value} ischeckedHuman={ischeckedHuman} ischeckedAlien={ischeckedAlien}/>
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail}/>
         </Switch>

@@ -24,6 +24,7 @@ body {
                     width: 400px;
                 }
             }
+
             .song {
 
                 opacity: 0.8;
@@ -33,45 +34,86 @@ body {
 
                 @include forPc {
                     position: absolute;
-                    top:60px;
+                    top: 60px;
                     right: 40px;
                     opacity: 0.8;
                 }
-          
-                audio {
-                  width: 120px;
-                  height: 30px;
 
-                  @include forPc {
-                    height: 38px;
-                 }
+                audio {
+                    width: 120px;
+                    height: 30px;
+
+                    @include forPc {
+                        height: 38px;
+                    }
                 }
-          
+
                 audio:focus {
-                  outline: none;
+                    outline: none;
                 }
             }
         }
 
+        // SHARE CLASS
+
         .hidden {
+
             display: none !important;
         }
 
-        Form {
-            input {
-                height: 6px;
-                width: 188px;
-                padding: 10px;
-                border: 1.5px solid #8ce422;
-                color: #8ce422;
-                background-color: black;
-                margin-bottom: 15px;
+        .characterSpecie {
+            font-size: 12px;
+            padding: 0 3px 0 3px;
+            margin-top: 2px;
+        }
 
-                &::placeholder{
-                    color: white;
-                    opacity: 0.9;
-                    font-family: 'Patrick Hand', cursive;
-                    letter-spacing: 3px;
+        .humanColor {
+            background-color: #00afc7;
+        }
+
+        .alienColor {
+            background-color: #ef4646;
+        }
+
+        .filterContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 28px;
+
+            input {
+                margin: 0 20px 0 0;
+            }
+            
+            @include forPc {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        
+            Form {
+
+                input {
+                    height: 6px;
+                    width: 188px;
+                    padding: 10px;
+                    border: 1.5px solid #8ce422;
+                    color: #8ce422;
+                    background-color: black;
+
+                    &::placeholder {
+                        color: white;
+                        opacity: 0.9;
+                        font-family: 'Patrick Hand', cursive;
+                        letter-spacing: 3px;
+                    }
+                }
+            }
+
+            .checkboxContainer{
+
+                input {
+                    margin: 0 20px 0 5px;
                 }
             }
         }
@@ -82,7 +124,7 @@ body {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            
+
             .errorSearchMessage {
                 padding: 30px;
                 font-size: 20px;
@@ -134,20 +176,7 @@ body {
                     font-size: 15px;
                 }
 
-                .characterSpecie {
-                    font-size: 12px;
-                    padding: 0 3px 0 3px;
-                    margin-top: 2px;
-                }
-
-                .humanColor {
-                    background-color: #00afc7;
-                }
-
-                .alienColor {
-                    background-color: #ef4646;
-                }
-
+                
                 .character_photo_container {
                     display: flex;
                     justify-content: center;
@@ -221,7 +250,7 @@ body {
                 color: black;
                 border-radius: 12px 12px 12px 12px;
                 box-shadow: 4px 5px 19px 3px #504f4f;
-            
+
                 @include forPc {
                     margin-top: 10px;
                     width: 607px;
@@ -254,7 +283,7 @@ body {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
-                           
+
                         @include forPc {
                             align-items: start;
                             width: 50%;
