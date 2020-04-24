@@ -8,26 +8,37 @@ import unknownImg from '../images/chat.png';
 import portalImg from '../images/portal.gif';
 import { Link } from 'react-router-dom';
 
-class CharacterDetails extends React.Component {
+const CharacterDetails = (props) => {
 
-  changeStatusImg(){
-    if(this.props.character.status === 'Alive'){
+  const changeStatusImg = () => {
+    if(props.character.status === 'Alive'){
       return aliveImg
-    } else if (this.props.character.status === 'Dead') {
+    } else if (props.character.status === 'Dead') {
       return deathImg
     } else {
       return unknownImg
     }
   }
 
-  render() {
-    const { name, image, species, gender, origin, episode, id} = this.props.character;
+  const goPrevCharacterDetail = () => {
+    if (props.character.id > 1) {
+      return `/character/${props.character.id - 1}`
+    }   
+  } 
+
+  const goNextCharacterDetail = () => {
+    if (props.character.id < 20) {
+      return `/character/${props.character.id + 1}`
+    }  
+  } 
+
+    const { name, image, species, gender, origin, episode } = props.character;
 
     return (
       <React.Fragment>
         <Header/>
         <div className='character_detail_container'>
-          <Link to={`/character/${id - 1}`}>
+          <Link to={goPrevCharacterDetail}>
               <button title='Previous character' className='circleButton prevCharacter'><i class="fas fa-chevron-left"></i></button>
           </Link>        
           <div className='character_detail_subcontainer'>
@@ -48,12 +59,12 @@ class CharacterDetails extends React.Component {
                 <p>SPECIE</p>
               </div>
               <div className='container status'>
-                <img src={this.changeStatusImg()} alt='status'></img>
+                <img src={changeStatusImg()} alt='status'></img>
                 <p>STATUS</p>
               </div>
             </div>
           </div>
-          <Link to={`/character/${id + 1}`}>
+          <Link to={goNextCharacterDetail}>
               <button title='Next character' className='circleButton nextCharacter'><i class="fas fa-chevron-right"></i></button>
           </Link> 
         </div>
@@ -63,7 +74,6 @@ class CharacterDetails extends React.Component {
         </Link>
       </React.Fragment>
     )
-  }
 }
 
 export default CharacterDetails;

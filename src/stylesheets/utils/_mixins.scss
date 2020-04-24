@@ -12,13 +12,3 @@ $pc: 1024px;
     @content;
   }
 }
-
-// //FONT-STYLE
-// @mixin text-capitalize {
-//   &::first-letter {
-//     text-transform: capitalize;
-//   }
-// }
-// @mixin text-uppercase {
-//   text-transform: uppercase;
-// }

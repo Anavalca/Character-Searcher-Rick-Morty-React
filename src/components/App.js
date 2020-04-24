@@ -7,6 +7,7 @@ import CharacterDetails from './CharacterDetails';
 import Filter from './Filters';
 import ErrorRoutePage from './ErrorRoutePage';
 import errorImg from '../images/MortySad.gif'
+import Footer from './Footer';
 import { Switch,Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -118,9 +119,10 @@ class App extends React.Component {
             <Filter handleInputValue={this.handleInputValue} value={value} handleCheckboxValue={this.handleCheckboxValue} ischeckedHuman={ischeckedHuman} ischeckedAlien={ischeckedAlien}/>
             <div className={`errorSearch_container ${isFound === true ? 'hidden' : '' }`}>
               <span className='errorSearchMessage' >There isn't any result for this search: "{value}"</span>
-              <img src={errorImg} alt='Sad Morty'/>
+              <img src={errorImg} alt='Sad Morty' title='Sad Morty'/>
             </div>
             <CharacterList data={data}  inputValue={value} ischeckedHuman={ischeckedHuman} ischeckedAlien={ischeckedAlien}/>
+            <Footer/>
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail}/>
         </Switch>
