@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import HeaderDetail from './HeaderDetail';
 import alienImg from '../images/alien.png';
 import humanImg from '../images/human.png';
 import aliveImg from '../images/heart.png';
@@ -36,7 +36,7 @@ const CharacterDetails = (props) => {
 
     return (
       <React.Fragment>
-        <Header/>
+        <HeaderDetail/>
         <div className='character_detail_container'>
           <Link to={goPrevCharacterDetail}>
               <button title='Previous character' className='circleButton prevCharacter'><i class="fas fa-chevron-left"></i></button>
