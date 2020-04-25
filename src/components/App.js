@@ -7,8 +7,7 @@ import CharacterDetails from './CharacterDetails';
 import Filter from './Filters';
 import ErrorRoutePage from './ErrorRoutePage';
 import errorImg from '../images/MortySad.gif'
-import Footer from './Footer';
-import { Switch,Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class App extends React.Component {
     this.handleCheckboxValue = this.handleCheckboxValue.bind(this);
     this.state = {
       data: [],
-      value:'',
+      value: '',
       isFound: true,
       ischeckedHuman: false,
       ischeckedAlien: false,
@@ -30,53 +29,53 @@ class App extends React.Component {
     const searchLocalInfo = JSON.parse(localStorage.getItem('searchData'));
     if (searchLocalInfo !== null) {
       this.setState({
-          value: searchLocalInfo      
+        value: searchLocalInfo
       });
     }
 
     FetchData()
-    .then(data => {
-      this.setState({
-        data: data.results
-      })    
-    })
+      .then(data => {
+        this.setState({
+          data: data.results
+        })
+      })
   }
 
   componentDidUpdate() {
     localStorage.setItem('searchData', JSON.stringify(this.state.value));
   }
 
-  handleInputValue(inputValue){
+  handleInputValue(inputValue) {
     this.setState({
       value: inputValue
     })
     this.foundSearch(inputValue)
   }
 
-  handleCheckboxValue(checkboxName){
-    if (checkboxName === 'Human'){
+  handleCheckboxValue(checkboxName) {
+    if (checkboxName === 'Human') {
       this.setState(prevState => {
         return {
-        ischeckedHuman: !prevState.ischeckedHuman
+          ischeckedHuman: !prevState.ischeckedHuman
         }
       })
-    } else if (checkboxName === 'Alien'){
+    } else if (checkboxName === 'Alien') {
       this.setState(prevState => {
         return {
-        ischeckedAlien: !prevState.ischeckedAlien
+          ischeckedAlien: !prevState.ischeckedAlien
         }
       })
     }
   }
 
-  foundSearch(inputValue){
+  foundSearch(inputValue) {
     const characters = this.state.data;
     let found = false;
-    for (let character of characters){
-      if(character.name.toLowerCase().includes(inputValue.toLowerCase()) || inputValue === ''){
+    for (let character of characters) {
+      if (character.name.toLowerCase().includes(inputValue.toLowerCase()) || inputValue === '') {
         found = true;
         break;
-      } 
+      }
     }
 
     if (found) {
@@ -90,41 +89,40 @@ class App extends React.Component {
     }
   }
 
-  renderCharacterDetail(props){
+  renderCharacterDetail(props) {
     const routeId = props.match.params.id;
     const characters = this.state.data;
     let foundRoute = false;
     let characterFound;
-    for (let character of characters){
-      if(character.id === parseInt(routeId)){
+    for (let character of characters) {
+      if (character.id === parseInt(routeId)) {
         foundRoute = true;
         characterFound = character;
         break;
-      }   
+      }
     }
-    if (foundRoute){
-      return <CharacterDetails character={characterFound}/>;
+    if (foundRoute) {
+      return <CharacterDetails character={characterFound} />;
     } else {
-      return <ErrorRoutePage/>;
+      return <ErrorRoutePage />;
     }
   }
 
   render() {
-    const {data , value, isFound, ischeckedAlien, ischeckedHuman} = this.state
+    const { data, value, isFound, ischeckedAlien, ischeckedHuman } = this.state
     return (
       <div className="App">
-         <Switch>
+        <Switch>
           <Route exact path="/">
-            <Header/>
-            <Filter handleInputValue={this.handleInputValue} value={value} handleCheckboxValue={this.handleCheckboxValue} ischeckedHuman={ischeckedHuman} ischeckedAlien={ischeckedAlien}/>
-            <div className={`errorSearch_container ${isFound === true ? 'hidden' : '' }`}>
+            <Header />
+            <Filter handleInputValue={this.handleInputValue} value={value} handleCheckboxValue={this.handleCheckboxValue} ischeckedHuman={ischeckedHuman} ischeckedAlien={ischeckedAlien} />
+            <div className={`errorSearch_container ${isFound === true ? 'hidden' : ''}`}>
               <span className='errorSearchMessage' >There isn't any result for this search: "{value}"</span>
-              <img src={errorImg} alt='Sad Morty' title='Sad Morty'/>
+              <img src={errorImg} alt='Sad Morty' title='Sad Morty' />
             </div>
-            <CharacterList data={data}  inputValue={value} ischeckedHuman={ischeckedHuman} ischeckedAlien={ischeckedAlien}/>
-            <Footer/>
+            <CharacterList data={data} inputValue={value} ischeckedHuman={ischeckedHuman} ischeckedAlien={ischeckedAlien} />
           </Route>
-          <Route path="/character/:id" render={this.renderCharacterDetail}/>
+          <Route path="/character/:id" render={this.renderCharacterDetail} />
         </Switch>
       </div>
     );

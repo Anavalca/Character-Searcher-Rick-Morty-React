@@ -1,6 +1,7 @@
 import React from 'react';
 import CharacterCard from './CharacterCard'
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const CharacterList = (props) => {
 
@@ -8,7 +9,7 @@ const CharacterList = (props) => {
     let returnValue = false;
     if (!ischeckedHuman && !ischeckedAlien) {
       returnValue = true;
-    } else if (ischeckedHuman && character.species === 'Human' ){
+    } else if (ischeckedHuman && character.species === 'Human') {
       returnValue = true;
     } else if (ischeckedAlien && character.species === 'Alien') {
       returnValue = true;
@@ -18,7 +19,7 @@ const CharacterList = (props) => {
     return returnValue;
   }
 
-  const {ischeckedHuman, ischeckedAlien} = props;
+  const { inputValue, ischeckedHuman, ischeckedAlien } = props;
   return (
     <ul className="character_List">
       {props.data
@@ -27,9 +28,9 @@ const CharacterList = (props) => {
           else if (characterA.name > characterB.name) return 1;
           return 0;
         })
-        .filter(character => props.inputValue === '' || character.name.toLowerCase().includes(props.inputValue.toLowerCase()))
+        .filter(character => inputValue === '' || character.name.toLowerCase().includes(props.inputValue.toLowerCase()))
         .filter(filterCheckbox)
-        .map(character => 
+        .map(character =>
           <li key={character.id}>
             <Link to={`/character/${character.id}`}>
               <CharacterCard
@@ -44,4 +45,10 @@ const CharacterList = (props) => {
   )
 }
 
- export default CharacterList;
+CharacterList.propTypes = {
+  inputValue: PropTypes.string,
+  ischeckedHuman: PropTypes.bool,
+  ischeckedAlien: PropTypes.bool,
+};
+
+export default CharacterList;
