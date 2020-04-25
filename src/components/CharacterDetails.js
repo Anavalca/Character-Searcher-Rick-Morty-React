@@ -40,7 +40,7 @@ const CharacterDetails = (props) => {
       <HeaderDetail />
       <div className='character_detail_container'>
         <Link to={goPrevCharacterDetail}>
-          <button title='Previous character' className='circleButton prevCharacter'><i class="fas fa-chevron-left"></i></button>
+          <button title='Previous character' className='circleButton prevCharacter'><i className="fas fa-chevron-left" /></button>
         </Link>
         <div className='character_detail_subcontainer'>
           <div className='dataContainer1'>
@@ -66,7 +66,7 @@ const CharacterDetails = (props) => {
           </div>
         </div>
         <Link to={goNextCharacterDetail}>
-          <button title='Next character' className='circleButton nextCharacter'><i class="fas fa-chevron-right"></i></button>
+          <button title='Next character' className='circleButton nextCharacter'><i className="fas fa-chevron-right" /></button>
         </Link>
       </div>
       <Link to="/">

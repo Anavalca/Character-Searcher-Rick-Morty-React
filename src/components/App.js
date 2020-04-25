@@ -15,12 +15,14 @@ class App extends React.Component {
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleInputValue = this.handleInputValue.bind(this);
     this.handleCheckboxValue = this.handleCheckboxValue.bind(this);
+    this.ChangeTheme = this.ChangeTheme.bind(this);
     this.state = {
       data: [],
       value: '',
       isFound: true,
       ischeckedHuman: false,
       ischeckedAlien: false,
+      theme: 1,
     }
   }
 
@@ -68,6 +70,24 @@ class App extends React.Component {
     }
   }
 
+  getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
+  ChangeTheme() {
+
+    let randomNumber = this.state.theme;
+
+    while (randomNumber === this.state.theme) {
+      randomNumber = this.getRandomArbitrary(1, 6);
+    }
+
+    this.setState({
+      theme: randomNumber,
+    })
+
+  }
+
   foundSearch(inputValue) {
     const characters = this.state.data;
     let found = false;
@@ -109,12 +129,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { data, value, isFound, ischeckedAlien, ischeckedHuman } = this.state
+    const { data, value, isFound, ischeckedAlien, ischeckedHuman, theme } = this.state
     return (
-      <div className="App">
+      <div className={`App ${'theme' + theme.toString()}`}>
         <Switch>
           <Route exact path="/">
-            <Header />
+            <Header ChangeTheme={this.ChangeTheme} />
             <Filter handleInputValue={this.handleInputValue} value={value} handleCheckboxValue={this.handleCheckboxValue} ischeckedHuman={ischeckedHuman} ischeckedAlien={ischeckedAlien} />
             <div className={`errorSearch_container ${isFound === true ? 'hidden' : ''}`}>
               <span className='errorSearchMessage' >There isn't any result for this search: "{value}"</span>

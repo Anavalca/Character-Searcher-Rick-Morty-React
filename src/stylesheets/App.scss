@@ -7,12 +7,33 @@ body {
     font-size: 18px;
     letter-spacing: 2px;
 
+    .theme1 {
+        background: #00000075;
+    }
+
+    .theme2 {
+        background: url('../images/2.jpg');
+    }
+
+    .theme3 {
+        background: url('../images/3.jpg');
+    }
+
+    .theme4 {
+        background: url('../images/4.jpg');
+    }
+
+    .theme5 {
+        background: url('../images/5.jpg');
+    }
+
     .App {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: #00000075;
         color: white;
+        height: 100%;
+
 
         header {
 
@@ -27,17 +48,19 @@ body {
             }
 
             .song {
-
                 opacity: 0.8;
                 display: flex;
-                justify-content: center;
-                padding-bottom: 25px;
+                justify-content: flex-end;
+                padding-top: 20px;
+                padding-bottom: 60px;
 
-                @include forPc {
+                @include forTablet {
                     position: absolute;
-                    top: 60px;
-                    right: 60px;
+                    top: 70px;
+                    right: 80px;
                     opacity: 0.8;
+                    padding-bottom: 0;
+                    padding-top: 0;
                 }
 
                 audio {
@@ -52,6 +75,47 @@ body {
 
                 audio:focus {
                     outline: none;
+                }
+            }
+
+            .themeContainer {
+
+                position: absolute;
+                top: 106px;
+                left: 80px;
+
+                @include forTablet {
+                    position: absolute;
+                    top: 36px;
+                    left: 80px;
+                }
+
+                animation: beat .40s infinite alternate;
+
+                @keyframes beat {
+                    to {
+                        transform: scale(1.1);
+                    }
+                }
+
+                .pickle {
+                    width: 50px;
+
+                    @include forTablet {
+                        width: 65px;
+                    }
+                }
+
+                .chat {
+                    width: 57px;
+                    padding-bottom: 31px;
+                    margin-right: -22px;
+
+                    @include forTablet {
+                        width: 82px;
+                        padding-bottom: 44px;
+                        margin-right: -37px;
+                    }
                 }
             }
         }
@@ -179,7 +243,7 @@ body {
             @include forTablet {
                 grid-template-columns: repeat(3, 250px);
                 grid-gap: 0rem;
-                padding: 5px 10px 5px 10px;
+                padding: 5px 10px 0 10px;
             }
 
             @include forPc {
@@ -339,7 +403,7 @@ body {
                             padding: 0 30px 0 30px;
                             font-size: 13px;
                             max-width: 250px;
-                            
+
 
                             @include forPc {
                                 padding: 0 30px 0 30px;
@@ -403,26 +467,26 @@ body {
                 width: 40px;
                 height: 40px;
                 background-color: white;
-                border-radius:50%;
+                border-radius: 50%;
                 font-size: 20px;
                 outline: none;
                 border: none;
                 cursor: pointer;
-                
+
                 &:hover {
-                    transform: scale(1.1);	
+                    transform: scale(1.1);
                 }
             }
         }
 
         .messageGoHome {
-            padding-top: 34px;
+            padding: 34px 0 40px 0;
             font-size: 16px;
             text-align: center;
             cursor: pointer;
 
             &:hover {
-                transform: scale(1.1);	
+                transform: scale(1.1);
             }
         }
 

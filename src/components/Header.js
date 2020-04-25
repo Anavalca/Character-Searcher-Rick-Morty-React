@@ -1,8 +1,13 @@
 import React from 'react';
 import audio from '../audio/ThemeSong.mp3';
 import { Link } from 'react-router-dom';
+import Theme from './Theme';
 
 const Header = (props) => {
+
+    const ChangeThemes = () => {
+        props.ChangeTheme();
+    }
 
     return (
         <header>
@@ -14,6 +19,7 @@ const Header = (props) => {
                     <source src={audio} type="audio/mp3" />
                 </audio>
             </div>
+            <Theme ChangeTheme={ChangeThemes}/>
         </header>
     );
 };
