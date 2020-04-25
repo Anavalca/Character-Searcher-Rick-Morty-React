@@ -32,7 +32,7 @@ body {
         flex-direction: column;
         align-items: center;
         color: white;
-        height: 100%;
+        height: 100vh;
 
 
         header {
@@ -79,7 +79,7 @@ body {
             }
 
             .themeContainer {
-
+                cursor: pointer;
                 position: absolute;
                 top: 106px;
                 left: 80px;
