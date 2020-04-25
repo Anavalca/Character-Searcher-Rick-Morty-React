@@ -1,7 +1,6 @@
-## BUSCADOR DE PERSONAJES DE RICK Y MORTY :morty-smile: :rick-hey-2:
+## BUSCADOR DE PERSONAJES DE RICK Y MORTY 😁 👽 
 
 En este repositorio encontrarás el proyecto realizado para la evalución final del módulo 3 de React de AdaLab. El proyecto consiste en una web donde buscar los diferentes personajes de la serie *Rick y Morty* y encontrar información sobre ellos.
-:morty-smile: :rick-hey-2:
 
 ## Funcionalidades ✔️
 
